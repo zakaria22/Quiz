@@ -11,15 +11,18 @@
 		.controller('listCtrl',ListController)
 	;
 
-	function ListController() {
+	// instance of the QuizMetrics Factory
+	ListController.$injector = ['quizMetrics'];
+
+	function ListController(quizMetrics) {
 		var view_model = this;
 		
-		view_model.sayHello = "Hello World";
+		view_model.quizMetrics = quizMetrics;
+
 		view_model.data     = turtlesData;
 		view_model.active = {};
 		view_model.changeActiveTurtle = changeActiveTurtle;
 		view_model.search = "";
-		view_model.quizActive = false;
 		view_model.activateQuiz = activateQuiz;
 
 
@@ -29,8 +32,13 @@
 			view_model.active = index;
 		}
 
+		/**
+		 * The reason why it's independent -> 
+		 * it's injected to the controller
+		 */
 		function activateQuiz(){
-			view_model.quizActive = true;
+			// view_model.quizMetrics.quizActive = true;
+			quizMetrics.changeState(true);
 		}
 	}
 

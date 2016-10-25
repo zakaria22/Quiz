@@ -1,0 +1,5 @@
+factory & services : data shared between controllers
+	-> put data to service - controllers will access it 
+	-> return data that will be accessed by controllers
+
+	
