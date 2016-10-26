@@ -80,7 +80,36 @@
 
 		<!-- Quiz Controller -->
 		<div ng-controller="quizCtrl as quiz" ng-show="quiz.quizMetrics.quizActive">
-			<h1>Quiz</h1>
+			<div class="row">
+				<div class="col-xs-8">
+					<h2>Progress:</h2>
+					<div class="btn-toolbar">
+						<button class="btn" 
+								ng-repeat="question in quiz.dataService.quizQuestions" 
+								ng-class="{'btn-info':question.selected !== null,'btn-danger':question.selected === null}">
+							<span class="glyphicon" ng-class="{'glyphicon-pencil' :question.selected !== null , 'glyphicon-question-sign' :question.selected === null }"></span>
+						</button>
+					</div>
+				</div>	
+				<div class="col-xs-4">
+					<div class="row">
+						<h4>Legend:</h4>
+						<div class="col-sm-4">
+							<button class="btn btn-info">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</button>
+							<p>Answered</p>
+						</div>
+						<div class="col-sm-4">
+							<button class="btn btn-danger">
+								<span class="glyphicon glyphicon-question-sign"></span>
+							</button>
+							<p>Unanswered</p>
+						</div>
+					</div>
+				</div>
+				
+			</div>
 		</div>
 	
 	</div>
@@ -95,5 +124,6 @@
 	<script type="text/javascript" src="js/controller/list.js"></script>
 	<script type="text/javascript" src="js/controller/quiz.js"></script>
 	<script type="text/javascript" src="js/factorie/quizMetrics.js"></script>
+	<script type="text/javascript" src="js/factorie/dataService.js"></script>
 </body>
 </html>
