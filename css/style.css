@@ -34,3 +34,11 @@
 .img-selected{
 	border: 3px solid #65afdc;
 }
+
+.img-answer.bg-success{
+	border: 3px solid #56afdc;
+}
+
+.img-answer.bg-danger{
+	border: 3px solid #b74848;
+}

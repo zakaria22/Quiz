@@ -38,7 +38,7 @@
 		 */
 		function activateQuiz(){
 			// view_model.quizMetrics.quizActive = true;
-			quizMetrics.changeState(true);
+			quizMetrics.changeState("quiz",true);
 		}
 	}
 
